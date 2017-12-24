@@ -28,6 +28,12 @@ public class MovieController {
      */
     @GetMapping("/movie/{id}")
     public User findById(@PathVariable Long id) {
+        // 存在的问题？
+        // 如果是旧的框架是没有问题的，但是，
+        // 如果是云环境的话，可能会有问题
+        // 如果服务提供者的IP，和端口，可能要经常变
+        // 是动态变化的
+        // 因此，这里写死了，是有问题的
         return this.restTemplate.getForObject("http://localhost:7900/simple/" + id, User.class);
     }
 
