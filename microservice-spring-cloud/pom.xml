@@ -9,6 +9,7 @@
   
   	<module>microservice-consumer-movie</module>
   	<module>microservice-provider-user</module>
+  	<module>microservice-discovery-eureka</module>
   </modules>
   
   
