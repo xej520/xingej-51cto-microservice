@@ -20,10 +20,10 @@
 	</properties>
 
 	<dependencies>
-		<!-- 添加eureka 依赖-->
+		<!-- 添加eureka-server 依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 			<version>1.2.0.RELEASE</version>
 		</dependency>
 
