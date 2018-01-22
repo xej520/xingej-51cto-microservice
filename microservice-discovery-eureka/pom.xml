@@ -9,23 +9,23 @@
 		<groupId>com.itmuch.cloud</groupId>
 		<artifactId>microservice-spring-cloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<name>microservice-discovery-eureka</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<!-- <properties> <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+		</properties> -->
 
 	<dependencies>
-		<!-- 添加eureka-server 依赖-->
+
+		<!-- 添加eureka-server 依赖 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
-			<version>1.2.0.RELEASE</version>
 		</dependency>
 
 	</dependencies>
+
+
 </project>

@@ -1,68 +1,58 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.itmuch.cloud</groupId>
-  <artifactId>microservice-spring-cloud</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <modules>
-  
-  	<module>microservice-consumer-movie</module>
-  	<module>microservice-provider-user</module>
-  	<module>microservice-discovery-eureka</module>
-  </modules>
-  
-  
-  	<parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.itmuch.cloud</groupId>
+	<artifactId>microservice-spring-cloud</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+
+		<module>microservice-consumer-movie</module>
+		<module>microservice-provider-user</module>
+		<module>microservice-discovery-eureka</module>
+	</modules>
+
+
+	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>1.4.2.RELEASE</version>
 	</parent>
-  
-  <properties>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-  
- 	<!-- 添加Spring io模块 -->
+
+	<!-- 添加Spring io模块 -->
 	<!-- 作用：解决依赖之间的版本问题，自动选择合适的版本，你就不需要制定版本号了 -->
-	<!-- -->
+	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>io.spring.platform</groupId> 
+		<artifactId>platform-bom</artifactId> <version>Brussels-SR5</version> <type>pom</type> 
+		<scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>io.spring.platform</groupId>
-				<artifactId>platform-bom</artifactId>
-				<version>Brussels-SR5</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-  
-  <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-  
-  
+
 	<build>
 		<plugins>
 			<plugin>
@@ -71,6 +61,6 @@
 			</plugin>
 		</plugins>
 	</build>
-  
-  
+
+
 </project>

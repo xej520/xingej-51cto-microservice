@@ -1,6 +1,7 @@
 package com.itmuch.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,12 @@ public class MovieController {
     @Autowired
     private RestTemplate restTemplate;
 
+    
+    @Value("${user.userServicePath}")
+    private String userServicePath;
+    
+    
+    
     /**
      * 当你使用页面或者postman的方式，/movie/{id} 时，
      * 
@@ -34,7 +41,7 @@ public class MovieController {
         // 如果服务提供者的IP，和端口，可能要经常变
         // 是动态变化的
         // 因此，这里写死了，是有问题的
-        return this.restTemplate.getForObject("http://localhost:7900/simple/" + id, User.class);
+        return this.restTemplate.getForObject(this.userServicePath + id, User.class);
     }
 
 }
