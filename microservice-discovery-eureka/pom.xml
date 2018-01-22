@@ -25,6 +25,14 @@
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
 
+		<!-- 测试eureka认证 第2步，添加必要的依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+
+
 	</dependencies>
 
 
