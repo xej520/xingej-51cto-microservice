@@ -39,6 +39,9 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!-- 将服务注册到Eureka上时使用的 -->
+		
+		<!-- 将服务注册到Eureka上，第一步 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
