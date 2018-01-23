@@ -15,9 +15,10 @@ public class MovieController {
     @Autowired
     private RestTemplate restTemplate;
 
-    
-    @Value("${user.userServicePath}")
-    private String userServicePath;
+    //测试ribbon时，注释掉
+    //并且，将配置文件里user.userServicePath 属性注释掉
+//    @Value("${user.userServicePath}")
+//    private String userServicePath;
     
     
     
@@ -41,7 +42,11 @@ public class MovieController {
         // 如果服务提供者的IP，和端口，可能要经常变
         // 是动态变化的
         // 因此，这里写死了，是有问题的
-        return this.restTemplate.getForObject(this.userServicePath + id, User.class);
+//        return this.restTemplate.getForObject(this.userServicePath + id, User.class);
+        //其实，下面的也算是硬编码，万一，应用名称变了呢
+        //其实，这是VIP virtual IP
+        
+        return this.restTemplate.getForObject("http://microservice-provider-user/simple/" + id, User.class);
     }
 
 }
