@@ -2,6 +2,8 @@ package com.itmuch.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,9 @@ public class MovieController {
 //    @Value("${user.userServicePath}")
 //    private String userServicePath;
     
+    
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
     
     
     /**
@@ -49,4 +54,18 @@ public class MovieController {
         return this.restTemplate.getForObject("http://microservice-provider-user/simple/" + id, User.class);
     }
 
+    @GetMapping("/test")
+    public String test(){
+        ServiceInstance choose = this.loadBalancerClient.choose("microservice-provider-user");
+       
+        System.out.println("===1===>:\t" + choose.getHost() +":" + choose.getPort() +":" + choose.getServiceId());
+        
+        
+        ServiceInstance choose2 = this.loadBalancerClient.choose("microservice-provider-user-2");
+        
+        System.out.println("===2===>:\t" + choose2.getHost() +":" + choose2.getPort() +":" + choose2.getServiceId());
+        
+        return "1";
+    }
+    
 }
