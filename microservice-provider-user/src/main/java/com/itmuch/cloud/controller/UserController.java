@@ -5,6 +5,9 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itmuch.cloud.entity.User;
@@ -42,6 +45,12 @@ public class UserController {
         ServiceInstance localServiceInstance = this.discoveryClient.getLocalServiceInstance();
         
         return localServiceInstance;
+    }
+    
+    @PostMapping("/user")
+    public User postUser(@RequestBody User user){
+        System.out.println("==============>:\t" + user.getUsername());
+        return user;
     }
     
 }
