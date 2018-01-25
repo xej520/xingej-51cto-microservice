@@ -3,6 +3,8 @@ package com.itmuch.cloud.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itmuch.cloud.api.UserFeignClient;
@@ -26,5 +28,13 @@ public class MovieController {
         System.out.println("------>:\t" + user.getName());
         return userFeignClient.postUser(user);
     }
+    
+    @GetMapping("/test-user")
+    public User testUser(User user){
+        System.out.println("---2--->:\t" + user.getName());
+        return this.userFeignClient.getUser(user);
+    }
+
+    
     
 }

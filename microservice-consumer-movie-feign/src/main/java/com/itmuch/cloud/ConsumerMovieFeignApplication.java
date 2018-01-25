@@ -11,10 +11,10 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients //添加feign依赖
-public class MicroserviceSimpleConsumerMovieApplication {
+public class ConsumerMovieFeignApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(MicroserviceSimpleConsumerMovieApplication.class, args);
+        ApplicationContext context = SpringApplication.run(ConsumerMovieFeignApplication.class, args);
 
         String[] allBeanNames = context.getBeanDefinitionNames();
 
